@@ -26,10 +26,16 @@ public class Main {
         System.out.println("Введите год. Значение должно быть больше 1584");
         int year=console.nextInt();
         boolean b = year % 4 == 0;
-        if (year % 100 == 0 && year%400==0 || b) {
+        boolean c=year%100!=0;
+        boolean d=year%400==0;
+        boolean b1 = (b && d) || c;
+        if (year>1584 && b1) {
             System.out.println("Год является высокосным");
-        } else
+        } else if (year<=1584) {
+            System.out.println("Год должен быть больше 1584");
+        }else {
             System.out.println("Год не является высокосным");
+        }
 
 
         double deliveryDistance= 95.0;
@@ -49,44 +55,24 @@ public class Main {
         }else
             System.out.println("Доставки нет");
         int monthNumber=12;
-        System.out.println("Введите номер месяца. По умолчанию будет использоватьдя Декабрь");
+        System.out.println("Введите номер месяца.");
         monthNumber=console.nextInt();
         switch (monthNumber) {
-            case 1:
+            case 12,1,2:
                 System.out.println("Время года - зима");
                 break;
-            case 2:
-                System.out.println("Время года - зима");
-                break;
-            case 3:
+            case 3,4,5:
                 System.out.println("Время года - весна");
                 break;
-            case 4:
-                System.out.println("Время года - весна");
-                break;
-            case 5:
-                System.out.println("Время года - весна");
-                break;
-            case 6:
+            case 6,7,8:
                 System.out.println("Время года - лето");
                 break;
-            case 7:
-                System.out.println("Время года - лето");
-                break;
-            case 8:
-                System.out.println("Время года - лето");
-                break;
-            case 9:
+            case 9,10,11:
                 System.out.println("Время года - осень");
                 break;
-            case 10:
-                System.out.println("Время года - осень");
-                break;
-            case 11:
-                System.out.println("Время года - осень");
-                break;
+
             default:
-                System.out.println("Время года - зима");
+                System.out.println("Введен некооректный месяц");
 
         }
     }
